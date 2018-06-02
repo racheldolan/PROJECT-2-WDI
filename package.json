@@ -1,0 +1,11 @@
+{
+  "name": "PROJECT-2-WDI",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:racheldolan/PROJECT-2-WDI.git",
+  "author": "Rachel Dolan <racheldolan1@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
