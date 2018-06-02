@@ -33,6 +33,17 @@ function createRoute(req, res) {
     });
 }
 
+function editRoute(req, res) {
+  Picture
+    .findById(req.params.id)
+    .exec()
+    .then( picture => {
+      res.render('pictures/edit', {picture});
+    });
+}
+
+
+
 module.exports = {
   index: indexRoute,
   show: showRoute,
