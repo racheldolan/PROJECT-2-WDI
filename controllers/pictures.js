@@ -23,7 +23,15 @@ function newRoute(req, res) {
   res.render('pictures/new');
 }
 
-
+function createRoute(req, res) {
+  const pictureData = req.body;
+  pictureData['creator'] = res.locals.user.id;
+  Picture
+    .create(req.body)
+    .then( picture => {
+      return res.redirect(`/pictures/${picture.id}`);
+    });
+}
 
 module.exports = {
   index: indexRoute,
