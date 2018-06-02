@@ -42,6 +42,16 @@ function editRoute(req, res) {
     });
 }
 
+function updateRoute(req, res) {
+  Picture
+    .findById(req.params.id)
+    .then( picture => {
+      return res.redirect(`/pictures/${picture.id}`);
+    });
+}
+
+
+
 
 
 module.exports = {
