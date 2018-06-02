@@ -50,7 +50,14 @@ function updateRoute(req, res) {
     });
 }
 
-
+function deleteRoute(req, res){
+  Picture
+    .findById(req.params.id)
+    .then( picture => {
+      picture.remove();
+      return res.redirect('/pictures');
+    });
+}
 
 
 
