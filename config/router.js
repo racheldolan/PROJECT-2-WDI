@@ -1,7 +1,9 @@
 const router = require('express').Router();
+const pictures = require('../controllers/pictures');
 
-router.route('/')
-  .get(pictures.index);
+router.get('/', (req, res) => res.render('index', {
+  isHomepage: true
+}));
 
 router.route('/pictures')
   .get(pictures.index)
