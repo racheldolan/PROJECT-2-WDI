@@ -1,24 +1,26 @@
-const router = require('express').Router();
-const pictures = require('../controllers/pictures');
+const express = require('express');
+const router = express.Router();
 
-router.get('/', (req, res) => res.render('index', {
+const picturesController = require('../controllers/pictures');
+
+router.get('/', (req, res) => res.render('home', {
   isHomepage: true
 }));
 
 router.route('/pictures')
-  .get(pictures.index)
-  .post(pictures.create);
+  .get(picturesController.index)
+  .post(picturesController.create);
 
 router.route('/pictures/new')
-  .get(pictures.new);
+  .get(picturesController.new);
 
 router.route('/pictures/:id')
-  .get(pictures.show)
-  .put(pictures.update)
-  .delete(pictures.delete);
+  .get(picturesController.show)
+  .put(picturesController.update)
+  .delete(picturesController.delete);
 
 router.route('/pictures/:id/edit')
-  .get(pictures.edit);
+  .get(picturesController.edit);
 
 
 module.exports = router;

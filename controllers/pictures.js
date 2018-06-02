@@ -1,64 +1,65 @@
-const Picture = require('../models/picture.js');
+const Picture = require('../models/picture');
+
 
 function indexRoute(req, res){
   Picture
     .find()
     .exec()
     .then( pictures => {
-      res.render('pictures/index', {pictures});
+      res.render('pictures/index', {
+        title: 'Dogs',
+        pictures
+      });
     });
 }
 
-function showRoute(req, res) {
+function showRoute(req, res){
   Picture
     .findById(req.params.id)
     .exec()
-    .then( pictures => {
-      res.render('pictures/index', {pictures});
+    .then( picture => {
+      res.render('pictures/show', {picture});
     });
 }
 
-function newRoute(req, res) {
-  // if(!res.locals.isLoggedIn)
-
+function newRoute(req, res){
   res.render('pictures/new');
-  // res.redirect('/');
 }
 
-function createRoute(req, res) {
-  // const pictureData = req.body;
-  // pictureData['creator'] = res.locals.user.id;
+function createRoute(req, res){
   Picture
     .create(req.body)
-    .then( picture => {
-      return res.redirect(`/pictures/${picture.id}`);
+    .then(( picture) => {
+      return res.redirect(`/pictures/${picture._id}`);
     });
 }
 
-function editRoute(req, res) {
-  Picture
+function editRoute(req, res){
+  return Picture
     .findById(req.params.id)
     .exec()
-    .then( picture => {
-      res.render('pictures/edit', {picture});
+    .then((picture) => {
+      return res.render('pictures/edit', {picture});
     });
 }
 
-function updateRoute(req, res) {
+function updateRoute(req, res){
   Picture
     .findById(req.params.id)
     .exec()
-    .then( picture => {
+    .then(picture => {
       Object.assign(picture, req.body);
       picture.save();
     });
   return res.redirect(`/pictures/${req.params.id}`);
 }
 
+
 function deleteRoute(req, res){
-  Picture
+  return Picture
     .findById(req.params.id)
-    .then( picture => {
+    .exec()
+    .then(picture => {
       picture.remove();
       return res.redirect('/pictures');
     });

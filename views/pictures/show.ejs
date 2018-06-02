@@ -1,0 +1,17 @@
+<h2><%= picture.name %></h2>
+<div class="columns is-multiline">
+  <div class="column is-half">
+  
+  </div>
+  <div class="column is-half">
+    <ul>
+      <li>title <%= picture.title %> </li>
+      <li>url <%= picture.url %> </li>
+    </ul>
+    <a href="/pictures/<%= picture.id %>/edit">Edit</a>
+    <form action="/pictures/<%= picture.id %>/" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <button name="button"> Delete</button>
+    </form>
+  </div>
+</div>

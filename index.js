@@ -1,13 +1,19 @@
 const express        = require('express');
-const app            = express();
+// const morgan         = require('morgan');
+
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser     = require('body-parser');
-const router         = require('./config/router');
+
 const methodOverride = require('method-override');
 const mongoose       = require('mongoose');
 
-mongoose.connect('mongodb://localhost:4000');
+const databaseURI = 'mongodb://localhost/mongo-canvas';
 
+mongoose.connect(databaseURI);
+
+const router         = require('./config/router');
+
+const app            = express();
 
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
@@ -18,7 +24,7 @@ app.use(express.static(`${__dirname}/public`));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => res.render('pictures/home'));
+app.get('/', (req, res) => res.render('pictures/index'));
 
 app.use(methodOverride((req)=>{
   if(req.body && typeof req.body === 'object' && '_method' in req.body){
