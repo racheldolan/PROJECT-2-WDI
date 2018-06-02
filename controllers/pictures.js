@@ -18,6 +18,11 @@ function showRoute(req, res) {
     });
 }
 
+function newRoute(req, res) {
+  if(!res.locals.isLoggedIn) return res.redirect('/');
+  res.render('pictures/new');
+}
+
 
 
 module.exports = {
