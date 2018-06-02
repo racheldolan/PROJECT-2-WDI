@@ -9,6 +9,15 @@ function indexRoute(req, res){
     });
 }
 
+function showRoute(req, res) {
+  Picture
+    .findById(req.params.id)
+    .exec()
+    .then( pictures => {
+      res.render('pictures/home', {pictures});
+    });
+}
+
 
 
 module.exports = {
