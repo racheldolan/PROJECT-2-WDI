@@ -24,7 +24,7 @@ app.use(express.static(`${__dirname}/public`));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => res.render('pictures/index'));
+app.get('/', (req, res) => res.render('pictures/home'));
 
 app.use(methodOverride((req)=>{
   if(req.body && typeof req.body === 'object' && '_method' in req.body){

@@ -7,7 +7,6 @@ function indexRoute(req, res){
     .exec()
     .then( pictures => {
       res.render('pictures/index', {
-        title: 'Dogs',
         pictures
       });
     });
