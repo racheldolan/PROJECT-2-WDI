@@ -6,7 +6,7 @@ function newRoute(req, res) {
 
 function createRoute(req, res) {
   User
-    .findOne({email:req.body.email })
+    .findOne({email: req.body.email })
     .then((user)=>{
       console.log(user);
       if(!user || !user.validatePassword(req.body.password)){
@@ -21,4 +21,4 @@ function createRoute(req, res) {
 module.exports = {
   new: newRoute,
   create: createRoute
-}
+};

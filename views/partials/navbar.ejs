@@ -4,7 +4,16 @@
       <a href="/" class="navbar-item">
         Home
       </a>
-      <a href="#" class="navbar-item">
+      <% if(locals.isLoggedIn){%>
+        <a href="/" class="navbar-item">Hi <%= locals.user.username %></a>
+        <a href="#" class="navbar-item">
+          Logout
+        </a>
+        <a href="#" class="navbar-item">
+          Post
+        </a>
+        <%} else {%>
+      <a href="/login" class="navbar-item">
         Login
       </a>
     </div>
@@ -12,6 +21,7 @@
       <a href="/register" class="navbar-item">
         Create Account
       </a>
+    <%  } %>
  </div>
 </div>
   </div>
