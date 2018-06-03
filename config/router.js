@@ -3,7 +3,7 @@ const router = express.Router();
 
 const picturesController = require('../controllers/pictures');
 const registrationsController = require('../controllers/registrations');
-
+const sessionsController = require('../controllers/sessions');
 
 router.get('/', (req, res) => res.render('home', {
   isHomepage: true
@@ -27,6 +27,10 @@ router.route('/pictures/:id/edit')
 router.route('/register')
   .get(registrationsController.new)
   .post(registrationsController.create);
+
+router.route('/login')
+  .get(sessionsController.new)
+  .post(sessionsController.create);
 
 
 module.exports = router;
