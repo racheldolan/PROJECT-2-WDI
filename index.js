@@ -1,3 +1,4 @@
+
 const express        = require('express');
 
 const expressLayouts = require('express-ejs-layouts');
@@ -13,6 +14,7 @@ mongoose.connect(databaseURI);
 const router         = require('./config/router');
 
 const app            = express();
+const User           = require('./models/user');
 
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
