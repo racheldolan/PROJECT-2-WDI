@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const picturesController = require('../controllers/pictures');
+const registrationsController = require('../controllers/registrations');
+
 
 router.get('/', (req, res) => res.render('home', {
   isHomepage: true
@@ -21,6 +23,10 @@ router.route('/pictures/:id')
 
 router.route('/pictures/:id/edit')
   .get(picturesController.edit);
+
+router.route('/register')
+  .get(registrationsController.new)
+  .post(registrationsController.create);
 
 
 module.exports = router;
