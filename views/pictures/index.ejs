@@ -1,11 +1,11 @@
-
+<section class="index-page">
 <div class="columns is-multiline">
   <% pictures.forEach( (picture) =>{ %>
       <div class="column is-one-third-desktop is-half-tablet">
         <div class="card">
           <div class="card-image">
             <figure class="image is-square">
-              <a href='/pictures/<%=picture.id %>'><img src="<%= picture.url %>" alt="Placeholder image"></a>
+              <a href='/pictures/<%= picture.id %>'><img src="<%= picture.url %>" alt="Placeholder image"></a>
             </figure>
           </div>
           <div class="card-content">
@@ -16,7 +16,7 @@
                 </figure>
               </div>
               <div class="media-content">
-                <p class="title is-4">John Smith</p>
+                <p class="title is-4"><%= picture.creator %> </p>
                 <p class="subtitle is-6">@johnsmith</p>
               </div>
             </div>
@@ -32,3 +32,4 @@
       </div>
     <% }) %>
   </div>
+</section>

@@ -10,6 +10,8 @@ const pictureSchema = new mongoose.Schema({
   url: String,
   creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}
   // comments: [commentSchema]
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('Picture', pictureSchema);

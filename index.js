@@ -1,9 +1,6 @@
-
 const express        = require('express');
-
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser     = require('body-parser');
-
 const methodOverride = require('method-override');
 const mongoose       = require('mongoose');
 const session        = require('express-session');
@@ -12,7 +9,6 @@ const databaseURI = 'mongodb://localhost/mongo-canvas';
 mongoose.connect(databaseURI);
 
 const router         = require('./config/router');
-
 const app            = express();
 const User           = require('./models/user');
 
@@ -33,8 +29,8 @@ app.use(session({
 
 app.use((req, res, next) => {
   if(!req.session.userId) return next();
-  console.log('session middleware')
-  console.log(req.session)
+  // console.log('session middleware')
+  // console.log(req.session)
   User
     .findById(req.session.userId)
     .populate({path: 'pictures', populate: {path: 'creator'}})

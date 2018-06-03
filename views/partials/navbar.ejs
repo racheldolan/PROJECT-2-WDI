@@ -4,12 +4,15 @@
       <a href="/" class="navbar-item">
         Home
       </a>
+      <a href="/pictures" class="navbar-item">
+        Explore
+      </a>
       <% if(locals.isLoggedIn){%>
-        <a href="/" class="navbar-item">Hi <%= locals.user.username %></a>
+        <a href="#"class="navbar-item">Hi <%= locals.user.username %></a>
         <a href="#" class="navbar-item">
           Logout
         </a>
-        <a href="#" class="navbar-item">
+        <a href="/pictures/new" class="navbar-item">
           Post
         </a>
         <%} else {%>
