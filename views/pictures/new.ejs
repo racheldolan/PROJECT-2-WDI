@@ -1,4 +1,6 @@
-<form action="/pictures" method="post">
+
+
+<form action="/pictures" method="post" class="form-section">
     <div class="field">
         <label for="title">Title</label>
           <div class="control">
@@ -11,12 +13,16 @@
             <input type="url" name="url" class="input" id="url">
         </div>
     </div>
-    <div class="field is-grouped">
-      <div class="control">
-        <button class="button is-link">Submit</button>
-      <div class="control">
-        <button class="button is-text">Cancel</button>
-      </div>
+    <div class="field is-grouped is-grouped-centered">
+      <p class="control">
+        <a class="button is-primary">
+          Submit
+        </a>
+      </p>
+      <p class="control">
+        <a class="button is-light">
+          Cancel
+        </a>
+      </p>
     </div>
-  </div>
 </form>
