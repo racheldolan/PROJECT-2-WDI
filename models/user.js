@@ -23,6 +23,7 @@ userSchema.pre('save', function(next){
   if(this.isModified('password')){
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
   }
+  next();
 });
 
 userSchema.virtual('passwordConfirmation')

@@ -2,50 +2,52 @@
 
 <div class="form-section">
   <div class="heading">
-
-
 <h1>Sign Up</h1>
   </div>
+  <form action="/register" method="POST">
+
+
 <div class="field">
   <label class="label">Name</label>
     <div class="control">
-    <input class="input" type="text">
+    <input class="input" type="text" type="text" name="name" id="name">
   </div>
 </div>
 
 <div class="field">
   <label class="label">Username</label>
   <div class="control">
-    <input class="input" type="text">
+    <input class="input" type="text" type="text" name="username" id="username">
   </div>
 </div>
 
 <div class="field">
   <label class="label">Email</label>
   <div class="control">
-    <input class="input" type="email">
+    <input class="input" type="email" type="text" name="email" id="email">
   </div>
 </div>
 
 <div class="field">
   <label class="label">Password</label>
   <div class="control">
-    <input class="input" type="email">
+    <input class="input" type="text" type="text" name="password" id="password">
   </div>
 </div>
 
 <div class="field">
   <label class="label">Confirm Password</label>
   <div class="control">
-    <input class="input" type="email">
+    <input class="input" type="text" type="text" name="passwordConfirmation" id="passwordConfirmation">
   </div>
 </div>
 
 <div class="field is-grouped is-grouped-centered">
   <p class="control">
-    <a class="button is-primary">
+    <button class="button">Submit</button>
+    <%# <a class="button is-primary">
       Submit
-    </a>
+    </a> %>
   </p>
   <p class="control">
     <a class="button is-light">
@@ -53,4 +55,5 @@
     </a>
   </p>
 </div>
+  </form>
 </div>
