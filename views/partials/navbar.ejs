@@ -9,7 +9,7 @@
       </a>
       <% if(locals.isLoggedIn){%>
         <a href="#"class="navbar-item">Hi <%= locals.user.username %></a>
-        <a href="#" class="navbar-item">
+        <a href="/logout" class="navbar-item">
           Logout
         </a>
         <a href="/pictures/new" class="navbar-item">

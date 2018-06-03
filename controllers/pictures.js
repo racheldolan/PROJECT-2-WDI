@@ -64,7 +64,15 @@ function deleteRoute(req, res){
     });
 }
 
-
+function createCommentRoute(req, res){
+  Picture
+    .findById(req.params.id)
+    .exec()
+    .then( picture => {
+      picture.comments.create(req.body);
+      return res.redirect(`/pictures/${picture.id}`);
+    });
+}
 
 module.exports = {
   index: indexRoute,
@@ -73,6 +81,6 @@ module.exports = {
   create: createRoute,
   edit: editRoute,
   update: updateRoute,
-  delete: deleteRoute
-  // createComment: createCommentRoute
+  delete: deleteRoute,
+  createComment: createCommentRoute
 };
