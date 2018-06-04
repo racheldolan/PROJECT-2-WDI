@@ -8,7 +8,7 @@
         Explore
       </a>
       <% if(locals.isLoggedIn){%>
-        <a href="#"class="navbar-item">Hi <%= locals.user.username %></a>
+        <a href="/users/<%= user.id %>"class="navbar-item">Hi <%= locals.user.username %></a>
         <a href="/logout" class="navbar-item">
           Logout
         </a>

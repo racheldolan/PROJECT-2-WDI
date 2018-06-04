@@ -4,6 +4,7 @@ const router = express.Router();
 const picturesController = require('../controllers/pictures');
 const registrationsController = require('../controllers/registrations');
 const sessionsController = require('../controllers/sessions');
+const usersController = require('../controllers/users');
 
 router.get('/', (req, res) => res.render('home', {
   isHomepage: true
@@ -34,6 +35,17 @@ router.route('/login')
 
 router.route('/logout')
   .get(sessionsController.delete);
+//
+// router.route('/pictures/:id/comment')
+//   .post(picturesController.createComment);
+
+router.route('/users/:id')
+  .get(usersController.show)
+  .put(usersController.update)
+  .delete(usersController.delete);
+
+router.route('/users/:id/edit')
+  .get(usersController.edit);
 
 
 module.exports = router;

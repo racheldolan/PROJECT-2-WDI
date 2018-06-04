@@ -1,0 +1,80 @@
+
+<div class="form-section">
+
+<form action="/users/<%= user.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+<div class="field">
+  <label class="label">Name</label>
+    <div class="control">
+    <input class="input" type="text" name="name" id="name" value="<%= user.name %>">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Username</label>
+  <div class="control">
+    <input class="input" type="text" name="username" id="username" value="<%= user.username %>">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control">
+    <input class="input" type="email" type="text" name="email" id="email" value="<%= user.email %>">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Password</label>
+  <div class="control">
+    <input class="input" type="text" type="text" name="password" id="password">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Confirm Password</label>
+  <div class="control">
+    <input class="input" type="text" type="text" name="passwordConfirmation" id="passwordConfirmation">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Bio</label>
+  <div class="control">
+    <input class="input" type="text" name="bio" id="bio" value="<%= user.bio %>">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Profile Picture</label>
+  <div class="control">
+    <input class="input" type="url" name="profile" id="profile" value="<%= user.profile %>">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Location</label>
+  <div class="control">
+    <input class="input" type="text" name="location" id="location" value="<%= user.location %>">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Website</label>
+  <div class="control">
+    <input class="input" type="url" name="website" id="website" placeholder="link to personal website" value="<%= user.website %>">
+  </div>
+</div>
+
+<div class="field is-grouped is-grouped-centered">
+  <p class="control">
+    <button class="button is-primary">Submit</button>
+  </p>
+  <p class="control">
+    <a href="/" class="button is-light">
+      Cancel
+    </a>
+  </p>
+</div>
+  </form>
+</div>
