@@ -33,6 +33,8 @@ router.route('/login')
   .get(sessionsController.new)
   .post(sessionsController.create);
 
+router.route('/logout')
+  .get(sessionsController.delete);
 //
 // router.route('/pictures/:id/comment')
 //   .post(picturesController.createComment);

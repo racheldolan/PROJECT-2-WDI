@@ -10,10 +10,14 @@
         <ul>
           <li><%= user.username %> </li>
           <li><%= user.location %> </li>
+          <li>Followers: <%= user.followers.length %> </li>
+          <li>Following: <%= user.following.length %> </li>
           <li><%= user.website %> </li>
           <li><%= user.bio %> </li>
+          <li> <button class="button follow" name="button"> Follow</button></li>
         </ul>
         <a href="/users/<%= user.id %>/edit">Edit</a>
+
       </div>
     </div>
   </section>
