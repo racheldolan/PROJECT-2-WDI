@@ -29,8 +29,6 @@ app.use(session({
 
 app.use((req, res, next) => {
   if(!req.session.userId) return next();
-  // console.log('session middleware')
-  // console.log(req.session)
   User
     .findById(req.session.userId)
     .populate({path: 'pictures', populate: {path: 'creator'}})

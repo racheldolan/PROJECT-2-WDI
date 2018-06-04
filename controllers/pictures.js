@@ -15,8 +15,10 @@ function indexRoute(req, res){
 function showRoute(req, res){
   Picture
     .findById(req.params.id)
+    .populate('creator')
     .exec()
     .then( picture => {
+      console.log(picture);
       res.render('pictures/show', {picture});
     });
 }
@@ -26,6 +28,9 @@ function newRoute(req, res){
 }
 
 function createRoute(req, res){
+  req.body.creator = res.locals.user.id;
+  // const pictureData = req.body;
+  // pictureData['creator'] = res.locals.user.id;
   Picture
     .create(req.body)
     .then(( picture) => {
@@ -34,7 +39,7 @@ function createRoute(req, res){
 }
 
 function editRoute(req, res){
-  return Picture
+  Picture
     .findById(req.params.id)
     .exec()
     .then((picture) => {

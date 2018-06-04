@@ -11,6 +11,7 @@
       <div class="column is-half">
         <ul>
           <li><%= picture.title %> </li>
+          <li><%= picture.creator.username %> </li>
         </ul>
         <a href="/pictures/<%= picture.id %>/edit">Edit</a>
         <form action="/pictures/<%= picture.id %>/" method="post">
