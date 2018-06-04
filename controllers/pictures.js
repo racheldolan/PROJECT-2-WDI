@@ -29,8 +29,6 @@ function newRoute(req, res){
 
 function createRoute(req, res){
   req.body.creator = res.locals.user.id;
-  // const pictureData = req.body;
-  // pictureData['creator'] = res.locals.user.id;
   Picture
     .create(req.body)
     .then(( picture) => {

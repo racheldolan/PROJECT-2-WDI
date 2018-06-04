@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
   followers: [{type: String}],
   bio: {type: String},
   website: {type: String},
-  password: {type: String, required: true}
+  password: {type: String, required: true},
+  post: [{type: mongoose.Schema.Types.ObjectId, ref: 'Picture' }]
 }, {
   timestamps: true
 });

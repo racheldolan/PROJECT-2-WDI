@@ -14,10 +14,23 @@
           <li>Following: <%= user.following.length %> </li>
           <li><%= user.website %> </li>
           <li><%= user.bio %> </li>
+          <li><%= user.post.url %> </li>
           <li> <button class="button follow" name="button"> Follow</button></li>
         </ul>
         <a href="/users/<%= user.id %>/edit">Edit</a>
 
       </div>
-    </div>
+      <% if(locals.isLoggedIn){ %>
+        <h2>My Pictures</h2>
+          <%= locals.user %>
+            <ul>
+              <% locals.user.post.forEach( post =>{ %>
+                <li>
+                <%= post.title %>
+                <img style="max-width: 200px " src='<%= user.post.url %>' alt='<%= post.title %>' />
+                </li>
+              <% }) %>
+            </ul>
+          <% } %>
+        </div>
   </section>
