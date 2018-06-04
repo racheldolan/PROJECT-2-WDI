@@ -30,19 +30,19 @@ function updateRoute(req, res){
 }
 
 
-function deleteRoute(req, res){
-  return User
-    .findById(req.params.id)
-    .exec()
-    .then(user => {
-      user.remove();
-      return res.redirect('/');
-    });
-}
+// function deleteRoute(req, res){
+//   return User
+//     .findById(req.params.id)
+//     .exec()
+//     .then(user => {
+//       user.remove();
+//       return res.redirect('/');
+//     });
+// }
 
 module.exports = {
   show: showRoute,
   edit: editRoute,
-  update: updateRoute,
-  delete: deleteRoute
+  update: updateRoute
+  // delete: deleteRoute
 };

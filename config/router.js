@@ -33,16 +33,14 @@ router.route('/login')
   .get(sessionsController.new)
   .post(sessionsController.create);
 
-router.route('/logout')
-  .get(sessionsController.delete);
 //
 // router.route('/pictures/:id/comment')
 //   .post(picturesController.createComment);
 
 router.route('/users/:id')
   .get(usersController.show)
-  .put(usersController.update)
-  .delete(usersController.delete);
+  .put(usersController.update);
+
 
 router.route('/users/:id/edit')
   .get(usersController.edit);
