@@ -21,15 +21,19 @@
 
   <div class="column is-two-thirds">
             <ul>
+              <% function match(){ %>
+                <% for(let i = 1; i < values.length; i++){ %>
+                  <% return values[i].creator === values[0]._id %>
+              <% } %>
+              <% } %>
+              <% const idIsMatched = values.filter(match) %>
 
-              <% values[1].forEach( photo =>{ %>
+              <% idIsMatched.forEach( (picture) =>{ %>
                 <li>
-                <%= photo.title %>
-                <img src='<%= values[1].url %>' alt='<%= photo.title %>' >
+                <%= picture.title %>
+                <img src='<%= picture.url %>' alt='<%= picture.title %>' >
                 </li>
-              <% }) %>
-
-
+                <% }) %>
             </ul>
 
         </div>
