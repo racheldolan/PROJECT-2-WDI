@@ -12,14 +12,17 @@
             <div class="media">
               <div class="media-left">
                 <figure class="image is-48x48">
-                  <img src="" alt="">
+                  <% if (picture.creator){ %>
+                  <img src=" <%= picture.creator.profile %>" alt="">
+                      <% } %>
                 </figure>
               </div>
               <div class="media-content">
                 <% if (picture.creator){ %>
                   <p class="title"><a href="/users/<%= picture.creator.id %>"> <%= picture.creator.username %> </a></p>
+                  <p class="subtitle is-6"> <%= picture.title %> </p>
+                  <p class="subtitle is-6"> <%= picture.creator.location %> </p>
                   <% } %>
-                <p class="subtitle is-6">#</p>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ const Picture = require('../models/picture');
 function indexRoute(req, res){
   Picture
     .find()
+    .populate('creator')
     .exec()
     .then( pictures => {
       res.render('pictures/index', {
