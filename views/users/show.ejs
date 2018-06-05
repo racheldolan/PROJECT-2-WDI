@@ -3,34 +3,35 @@
 
 <section class="show-page">
   <div class="columns show">
-    <div class="column is-half">
-      <img src="<%= user.profile %>" alt="<%= user.username %>">
+    <div class="column is-one-third">
+      <img src="<%= values[0].profile %>" alt="<%= values[0].username %>">
       </div>
-      <div class="column is-half">
+      <div class="column is-one-third">
         <ul>
-          <li><%= user.username %> </li>
-          <li><%= user.location %> </li>
-          <li>Followers: <%= user.followers.length %> </li>
-          <li>Following: <%= user.following.length %> </li>
-          <li><%= user.website %> </li>
-          <li><%= user.bio %> </li>
-        
+          <li><%= values[0].username %> </li>
+          <li><%= values[0].location %> </li>
+          <li>Followers: <%= values[0].followers.length %> </li>
+          <li>Following: <%= values[0].following.length %> </li>
+          <li><%= values[0].website %> </li>
+          <li><%= values[0].bio %> </li>
+
           <li> <button class="button follow" name="button"> Follow</button></li>
         </ul>
-        <a href="/users/<%= user.id %>/edit">Edit</a>
+        <a href="/users/<%= values[0].id %>/edit">Edit</a>
 
       </div>
-      <% if(locals.isLoggedIn){ %>
+  <div class="column is-one-third">
         <h2>My Pictures</h2>
-          <%= locals.user %>
+
             <ul>
-              <% locals.user.post.forEach( post =>{ %>
+              <% locals.values[0].post.forEach( photo =>{ %>
                 <li>
-                <%= post.title %>
-                <img style="max-width: 200px " src='<%= user.post.url %>' alt='<%= post.title %>' />
+                <%= photo.title %>
+                <img src='<%= values[0].photo.url %>' alt='<%= photo.title %>' >
                 </li>
               <% }) %>
             </ul>
-          <% } %>
+
         </div>
+      </div>
   </section>

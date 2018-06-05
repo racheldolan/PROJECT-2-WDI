@@ -4,6 +4,7 @@ const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose       = require('mongoose');
 const session        = require('express-session');
+mongoose.Promise = require('bluebird');
 const databaseURI = 'mongodb://localhost/mongo-canvas';
 
 mongoose.connect(databaseURI);

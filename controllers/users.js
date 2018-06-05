@@ -1,13 +1,18 @@
 const User = require('../models/user');
+const Picture = require('../models/picture');
 
 function showRoute(req, res){
-  User
-    .findById(req.params.id)
-    .populate('post')
-    .exec()
-    .then( user => {
-      res.render('users/show', {user});
+  Promise.all([User.findById(req.params.id), Picture.find()])
+    .then((values) => {
+      res.render('users/show', {values});
     });
+  // User
+  // .findById(req.params.id)
+  // // .populate('post')
+  // .exec()
+  // .then( user => {
+  //   res.render('users/show', {user});
+  // });
 }
 
 function editRoute(req, res){
