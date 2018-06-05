@@ -22,4 +22,15 @@
 .show {
   margin-left: 30%; }
 
+.show-page {
+  margin: 0 auto; }
+
+.sign-in {
+  height: 700px;
+  background-image: url("../images/ruby_art_1.jpg");
+  background-size: cover; }
+
+.form-box {
+  padding-top: 30%; }
+
 /*# sourceMappingURL=style.css.map */

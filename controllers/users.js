@@ -35,6 +35,15 @@ function updateRoute(req, res){
   return res.redirect(`/users/${req.params.id}`);
 }
 
+function match(){
+  <% function match(){ %>
+    <% for(let i = 1; i < values.length; i++){ %>
+      <% if(values[i].creator === values[0]._id) %>
+      <% console.log(values[i].creator); %>
+  <% } %>
+  <% } %>
+  <% const idIsMatched = values.filter(match) %>
+}
 
 // function deleteRoute(req, res){
 //   return User
