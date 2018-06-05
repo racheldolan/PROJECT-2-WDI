@@ -1,6 +1,6 @@
 <section class="index-page">
 <div class="columns is-multiline">
-  <% values[1].forEach( (photo) =>{ %>
+  <% wantedPictures.forEach( (photo) =>{ %>
       <div class="column is-one-third-desktop is-half-tablet">
         <div class="card">
           <div class="card-image">
@@ -8,7 +8,6 @@
             <img src="<%= photo.url %>" alt="Placeholder image"></a>
             </figure>
           </div>
-
         </div>
       </div>
     <% }) %>

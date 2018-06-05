@@ -19,10 +19,18 @@
   background-color: #F9F8F4;
   padding-top: 30px; }
 
+.user-show {
+  padding-left: 30%; }
+
 .show {
   margin-left: 20%;
   min-width: 100%;
-  max-width: 100%; }
+  max-height: 100%; }
+
+.show-page {
+  max-width: 70%;
+  max-height: 70%;
+  margin: 0 auto; }
 
 .sign-in {
   height: 700px;

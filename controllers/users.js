@@ -13,8 +13,10 @@ function indexRoute(req, res){
 function showRoute(req, res){
   Promise.all([User.findById(req.params.id), Picture.find()])
     .then((values) => {
-      checkMatch(values);
-      res.render('users/show', {values});
+      const userId = values[0]._id.toString();
+      const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
+      console.log(userId, wantedPictures);
+      res.render('users/show', {wantedPictures});
     });
   // User
   // .findById(req.params.id)
@@ -43,14 +45,6 @@ function updateRoute(req, res){
       user.save();
     });
   return res.redirect(`/users/${req.params.id}`);
-}
-
-function checkMatch(array){
-  for(let i = 1; i < array.length; i++){
-    if(array[0]._id === array[i].creator) {
-      return array[i].creator;
-    }
-  }
 }
 
 // function deleteRoute(req, res){
