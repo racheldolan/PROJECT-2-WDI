@@ -3,10 +3,10 @@ const Picture = require('../models/picture');
 
 function indexRoute(req, res){
   Promise.all([User.findById(req.params.id), Picture.find()])
-    .then( values => {
-      res.render('users/pictures', {
-        values
-      });
+    .then( (values) => {
+      const userId = values[0]._id.toString();
+      const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
+      res.render('users/pictures', {values, wantedPictures});
     });
 }
 
@@ -16,7 +16,7 @@ function showRoute(req, res){
       const userId = values[0]._id.toString();
       const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
       console.log(userId, wantedPictures);
-      res.render('users/show', {wantedPictures});
+      res.render('users/show', {wantedPictures, values});
     });
   // User
   // .findById(req.params.id)
