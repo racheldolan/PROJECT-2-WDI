@@ -1,9 +1,19 @@
 const User = require('../models/user');
 const Picture = require('../models/picture');
 
+function indexRoute(req, res){
+  Promise.all([User.findById(req.params.id), Picture.find()])
+    .then( values => {
+      res.render('users/pictures', {
+        values
+      });
+    });
+}
+
 function showRoute(req, res){
   Promise.all([User.findById(req.params.id), Picture.find()])
     .then((values) => {
+      checkMatch(values);
       res.render('users/show', {values});
     });
   // User
@@ -35,14 +45,12 @@ function updateRoute(req, res){
   return res.redirect(`/users/${req.params.id}`);
 }
 
-function match(){
-  <% function match(){ %>
-    <% for(let i = 1; i < values.length; i++){ %>
-      <% if(values[i].creator === values[0]._id) %>
-      <% console.log(values[i].creator); %>
-  <% } %>
-  <% } %>
-  <% const idIsMatched = values.filter(match) %>
+function checkMatch(array){
+  for(let i = 1; i < array.length; i++){
+    if(array[0]._id === array[i].creator) {
+      return array[i].creator;
+    }
+  }
 }
 
 // function deleteRoute(req, res){
@@ -56,6 +64,7 @@ function match(){
 // }
 
 module.exports = {
+  index: indexRoute,
   show: showRoute,
   edit: editRoute,
   update: updateRoute

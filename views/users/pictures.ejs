@@ -1,1 +1,27 @@
-<h1>My Pictures</h1>
+<section class="index-page">
+<div class="columns is-multiline">
+  <% values[1].forEach( (photo) =>{ %>
+      <div class="column is-one-third-desktop is-half-tablet">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-square">
+            <img src="<%= photo.url %>" alt="Placeholder image"></a>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+
+                </figure>
+              </div>
+              <div class="media-content">
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>

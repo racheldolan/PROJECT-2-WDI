@@ -39,6 +39,9 @@ router.route('/logout')
 // router.route('/pictures/:id/comment')
 //   .post(picturesController.createComment);
 
+router.route('/users/pictures')
+  .get(usersController.index);
+
 router.route('/users/:id')
   .get(usersController.show)
   .put(usersController.update);
