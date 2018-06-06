@@ -1,17 +1,18 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-     <div class="navbar-brand">
-     <a class="navbar-item" href="/">
-       <img class="logo" src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/15338690_1040309262745821_275083345715531751_n.jpg?_nc_cat=0&oh=25d497266e5a4a740618588c683735f5&oe=5B84DCF1" alt="Canvas">
-     </a>
 
+<div class="navbar-brand">
      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
        <span aria-hidden="true"></span>
        <span aria-hidden="true"></span>
        <span aria-hidden="true"></span>
      </a>
-   </div>
+  </div>
+
   <div class="navbar-menu">
     <div class="navbar-start">
+      <h1 class="navbar-item brand">
+        Canvas
+      </h1>
       <a href="/" class="navbar-item">
         Home
       </a>
@@ -19,16 +20,13 @@
         Explore
       </a>
       <% if(locals.isLoggedIn){%>
-        <a class="navbar-item">Hi <%= locals.user.username %></a>
-        <a href="/users/<%= user.id %>" class="navbar-item"> Profile</a>
+
+        <a href="/users/<%= user.id %>" class="navbar-item">My Profile</a>
         <a href="/logout" class="navbar-item">
           Logout
         </a>
         <a href="/pictures/new" class="navbar-item">
           Post
-        </a>
-        <a href="/users/pictures" class="navbar-item">
-          My Pictures
         </a>
         <%} else {%>
       <a href="/login" class="navbar-item">

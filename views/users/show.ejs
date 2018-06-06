@@ -11,19 +11,24 @@
     </div>
 
     <div class="column is-half-desktop">
-      <ul>
-        <li><%= profile.username %> </li>
-        <li><%= profile.location %> </li>
 
-        <li><%= profile.website %> </li>
-        <li><%= profile.bio %> </li>
+        <p class="title"><%= profile.username %> </p>
+
+        <p class="subtitle"><%= profile.location %> </p>
+        <p class="subtitle is-6"><%= profile.bio %> </p>
+
+        <p>Website: <a target="blank" href="<%= profile.website %>"><%= profile.website%></a></p>
+
 
         <% if(locals.user && (profile.id === locals.user.id)){%>
-        <li><button class="button follow" name="button"><a href="/users/<%= profile.id %>/edit">Edit</a></button></li>
+          <div class="edit-button"
+        <button class="button" name="button"><a href="/users/<%= profile.id %>/edit">Edit</a></button>
+          </div>
         <% } %>
-      </ul>
+
     </div>
-  </div>
+
+</div>
 </div>
 </section>
 
