@@ -17,9 +17,10 @@ function showRoute(req, res){
   Picture
     .findById(req.params.id)
     .populate('creator')
+    .populate('comments.userId')
     .exec()
     .then( picture => {
-      console.log(picture);
+      console.log(picture.comments);
       res.render('pictures/show', {picture});
     });
 }
@@ -69,28 +70,31 @@ function deleteRoute(req, res){
 }
 
 function createCommentRoute(req, res, next){
+  req.body.userId = req.user._id;
   Picture
     .findById(req.params.id)
+    .populate('userId')
+    .exec()
     .then( picture => {
+      console.log(req.user._id);
       picture.comments.push(req.body);
       return picture.save();
-
     })
     .then(picture => res.redirect(`/pictures/${picture.id}`))
     .catch(next);
 }
-//
-// function commentDeleteRoute(req, res, next) {
-//   Picture
-//     .findById(req.params.id)
-//     .then(picture => {
-//       const comment = picture.comments.id(req.params.commentId);
-//       comment.remove();
-//       return picture.save();
-//     })
-//     .then(picture => res.redirect(`/pictures/${picture.id}`))
-//     .catch(next);
-// }
+
+function commentDeleteRoute(req, res, next) {
+  Picture
+    .findById(req.params.id)
+    .then(picture => {
+      const comment = picture.comments.id(req.params.comment.id);
+      comment.remove();
+      return picture.save();
+    })
+    .then(picture => res.redirect(`/pictures/${picture.id}`))
+    .catch(next);
+}
 
 module.exports = {
   index: indexRoute,
@@ -100,6 +104,6 @@ module.exports = {
   edit: editRoute,
   update: updateRoute,
   delete: deleteRoute,
-  createComment: createCommentRoute
-  // commentDelete: commentDeleteRoute
+  createComment: createCommentRoute,
+  commentDelete: commentDeleteRoute
 };

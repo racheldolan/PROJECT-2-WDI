@@ -17,7 +17,21 @@
           <input type="hidden" name="_method" value="DELETE">
           <button class="button" name="button"> Delete</button>
         </form>
+        <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
+           <textarea name="content" rows="8" cols="80"></textarea>
+           <button class="button" name="button">Post a comment</button>
+         </form>
+       <ul>
 
+         <% picture.comments.forEach(comment => { %>
+           <li> <%= comment.content %> </li>
+           <li> <%= comment.userId.username %> </li>
+           <form action="/pictures/<%= comment.id %>/" method="post">
+             <input type="hidden" name="_method" value="DELETE">
+             <button class="button" name="button"> Delete</button>
+           </form>
+       </ul>
+       <% }) %>
       </div>
 
       </ul>
