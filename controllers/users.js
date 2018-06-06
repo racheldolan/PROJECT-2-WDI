@@ -13,9 +13,9 @@ const Picture = require('../models/picture');
 function showRoute(req, res){
   Promise.all([User.findById(req.params.id), Picture.find()])
     .then( (values) => {
-      const userId = values[0]._id.toString();
-      const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
-      res.render('users/show', {values, wantedPictures});
+      const profile = values[0];
+      const pictures = values[1].filter(picture => picture.creator.toString() === profile.id);
+      res.render('users/show', {profile, pictures});
     });
 
   // User

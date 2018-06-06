@@ -1,30 +1,29 @@
 <section class="user-show">
-<div class="columns">
-      <div class="column is-half-desktop">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image">
-            <img src="<%= values[0].profile %>" alt="Placeholder image"></a>
-            </figure>
-          </div>
+  <div class="columns">
+    <div class="column is-half-desktop">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="<%= profile.profile %>" alt="Placeholder image"></a>
+          </figure>
         </div>
       </div>
+    </div>
 
-      <div class="column is-half-desktop">
-
-                <ul>
-                  <li><%= values[0].username %> </li>
-                  <li><%= values[0].location %> </li>
-                  <li>Followers: <%= values[0].followers.length %> </li>
-                  <li>Following: <%= values[0].following.length %> </li>
-                  <li><%= values[0].website %> </li>
-                  <li><%= values[0].bio %> </li>
-                  <li> <button class="button follow" name="button"> Follow</button></li>
-                  <li><button class="button follow" name="button"><a href="/users/<%= values[0].id %>/edit">Edit</a></button></li>
-
-                </ul>
-              </div>
-
+    <div class="column is-half-desktop">
+      <ul>
+        <li><%= profile.username %> </li>
+        <li><%= profile.location %> </li>
+        <li>Followers: <%= profile.followers.length %> </li>
+        <li>Following: <%= profile.following.length %> </li>
+        <li><%= profile.website %> </li>
+        <li><%= profile.bio %> </li>
+        <li> <button class="button follow" name="button"> Follow</button></li>
+        <% if(locals.user && (profile.id === locals.user.id)){%>
+        <li><button class="button follow" name="button"><a href="/users/<%= profile.id %>/edit">Edit</a></button></li>
+        <% } %>
+      </ul>
+    </div>
   </div>
 </div>
 </section>
@@ -32,7 +31,7 @@
 
 <section class="index-page">
 <div class="columns is-multiline">
-  <% wantedPictures.forEach( (photo) =>{ %>
+  <% pictures.forEach( (photo) =>{ %>
       <div class="column is-one-third-desktop is-half-tablet">
         <div class="card">
           <div class="card-image">
