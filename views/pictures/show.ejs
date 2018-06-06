@@ -13,28 +13,53 @@
           <li><%= picture.creator.location %> </li>
         </ul>
         <a href="/pictures/<%= picture.id %>/edit">Edit</a>
+
+
+
         <form action="/pictures/<%= picture.id %>/" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button class="button" name="button"> Delete</button>
         </form>
+        <div class="comment-box">
         <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
-           <textarea name="content" rows="8" cols="80"></textarea>
+           <textarea name="content" rows="8" cols="60"></textarea>
            <button class="button" name="button">Post a comment</button>
          </form>
+       </div>
        <ul>
-
-         <% picture.comments.forEach(comment => { %>
-           <li> <%= comment.content %> </li>
-           <li> <%= comment.userId.username %> </li>
-           <form action="/pictures/<%= comment.id %>/" method="post">
-             <input type="hidden" name="_method" value="DELETE">
-             <button class="button" name="button"> Delete</button>
-           </form>
-       </ul>
-       <% }) %>
       </div>
-
       </ul>
       </div>
     </div>
   </section>
+
+<section>
+  <% picture.comments.forEach(comment => { %>
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img src="<%= comment.userId.profile %>" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">  <%= comment.userId.username %></p>
+          <p class="subtitle is-6"><%= comment.userId.location %></p>
+        </div>
+      </div>
+      <div class="content">
+          <%= comment.content %>
+       <a>@bulmaio</a>.
+        <a href="#">#css</a> <a href="#">#responsive</a>
+        <br>
+        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        <form action="/pictures/<%= comment._id %>/" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="button" name="button"> Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</section>

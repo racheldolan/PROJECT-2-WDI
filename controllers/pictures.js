@@ -88,7 +88,7 @@ function commentDeleteRoute(req, res, next) {
   Picture
     .findById(req.params.id)
     .then(picture => {
-      const comment = picture.comments.id(req.params.comment.id);
+      const comment = picture.comments.id(req.params.commentId);
       comment.remove();
       return picture.save();
     })
