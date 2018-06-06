@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-image">
           <figure class="image">
-            <img src="<%= profile.profile %>" alt="Placeholder image"></a>
+            <img class="profile-picture" src="<%= profile.profile %>" alt="Placeholder image"></a>
           </figure>
         </div>
       </div>
@@ -14,11 +14,10 @@
       <ul>
         <li><%= profile.username %> </li>
         <li><%= profile.location %> </li>
-        <li>Followers: <%= profile.followers.length %> </li>
-        <li>Following: <%= profile.following.length %> </li>
+
         <li><%= profile.website %> </li>
         <li><%= profile.bio %> </li>
-        <li> <button class="button follow" name="button"> Follow</button></li>
+
         <% if(locals.user && (profile.id === locals.user.id)){%>
         <li><button class="button follow" name="button"><a href="/users/<%= profile.id %>/edit">Edit</a></button></li>
         <% } %>

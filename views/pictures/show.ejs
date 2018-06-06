@@ -10,7 +10,7 @@
           <li><%= picture.title %> </li>
           <li><%= picture.description %> </li>
           <li><a href="/users/<%= picture.creator.id %>"> <%= picture.creator.username %> </a></li>
-          <li><%= picture.creator.location %> </li>        
+          <li><%= picture.creator.location %> </li>
         </ul>
         <a href="/pictures/<%= picture.id %>/edit">Edit</a>
         <form action="/pictures/<%= picture.id %>/" method="post">

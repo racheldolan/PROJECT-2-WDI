@@ -1,3 +1,6 @@
+* {
+  font-family: 'PT Sans', sans-serif; }
+
 .columns {
   margin: 20px 20px 20px 20px; }
 
@@ -13,14 +16,24 @@
   color: black; }
 
 .navbar-link, a.navbar-item {
-  color: black; }
+  color: #22313F;
+  font-size: 20px; }
 
 .index-page {
-  background-color: #F9F8F4;
+  background-color: aliceblue;
   padding-top: 30px; }
 
 .creator {
-  font-size: 20px; }
+  font-size: 20px;
+  color: #22313F; }
+
+.profile-picture {
+  max-height: 50%;
+  max-width: 100%; }
+
+.logo {
+  border-radius: 50%;
+  height: 40; }
 
 .comment-header {
   font-size: 30px; }
