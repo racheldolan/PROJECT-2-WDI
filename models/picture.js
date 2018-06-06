@@ -8,7 +8,10 @@ const mongoose = require('mongoose');
 const pictureSchema = new mongoose.Schema({
   title: String,
   url: String,
-  creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  comments: [{
+    content: { type: String, required: true }
+  }]
   // comments: [commentSchema]
 }, {
   timestamps: true

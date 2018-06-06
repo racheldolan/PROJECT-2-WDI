@@ -3,10 +3,15 @@
   <div class="columns show">
     <div class="column is-half">
       <img src="<%= picture.url %>" alt="<%= picture.title %>">
-        <form class="" action="/pictures/<%= picture.id %>/comment" method="post">
+        <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
           <textarea name="content" rows="8" cols="80"></textarea>
           <button class="button" name="button">Post a comment</button>
         </form>
+        <ul>
+          <% picture.comments.forEach(comment => { %>
+            <li> <%= comment.content %> </li>
+          <% }) %>
+        </ul>
       </div>
       <div class="column is-half">
         <ul>

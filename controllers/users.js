@@ -6,25 +6,25 @@ function indexRoute(req, res){
     .then( (values) => {
       const userId = values[0]._id.toString();
       const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
-      res.render('users/pictures', {values, wantedPictures});
+      res.render('users/pictures', {values,wantedPictures});
     });
 }
 
 function showRoute(req, res){
   Promise.all([User.findById(req.params.id), Picture.find()])
-    .then((values) => {
+    .then( (values) => {
       const userId = values[0]._id.toString();
       const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
-      console.log(userId, wantedPictures);
-      res.render('users/show', {wantedPictures, values});
+      res.render('users/show', {values,wantedPictures});
     });
+
   // User
-  // .findById(req.params.id)
+  //   .findById(req.params.id)
   // // .populate('post')
-  // .exec()
-  // .then( user => {
-  //   res.render('users/show', {user});
-  // });
+  //   .exec()
+  //   .then( user => {
+  //     res.render('users/show', {user});
+  //   });
 }
 
 function editRoute(req, res){

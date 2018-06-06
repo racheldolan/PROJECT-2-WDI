@@ -19,7 +19,7 @@
               </div>
               <div class="media-content">
                 <% if (picture.creator){ %>
-                  <p class="title"><a href="/users/<%= picture.creator.id %>"> <%= picture.creator.username %> </a></p>
+                  <p class="title"><a class="creator" href="/users/<%= picture.creator.id %>"> <%= picture.creator.username %> </a></p>
                   <p class="subtitle is-6"> <%= picture.creator.location %> </p>
                   <% } %>
               </div>

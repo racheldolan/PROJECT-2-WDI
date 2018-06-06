@@ -68,15 +68,28 @@ function deleteRoute(req, res){
     });
 }
 
-// function createCommentRoute(req, res){
-//   Picture
-//     .findById(req.params.id)
-//     .exec()
-//     .then( picture => {
-//       picture.comments.create(req.body);
-//       return res.redirect(`/pictures/${picture.id}`);
-//     });
-// }
+function createCommentRoute(req, res, next){
+  Picture
+    .findById(req.params.id)
+    .then( picture => {
+      picture.comments.push(req.body);
+      return picture.save();
+    })
+    .then(picture => res.redirect(`/pictures/${picture.id}`))
+    .catch(next);
+}
+
+function commentDeleteRoute(req, res, next) {
+  Picture
+    .findById(req.params.id)
+    .then(picture => {
+      const comment = picture.comments.id(req.params.commentId);
+      comment.remove();
+      return picture.save();
+    })
+    .then(picture => res.redirect(`/pictures/${picture.id}`))
+    .catch(next);
+}
 
 module.exports = {
   index: indexRoute,
@@ -85,6 +98,7 @@ module.exports = {
   create: createRoute,
   edit: editRoute,
   update: updateRoute,
-  delete: deleteRoute
-  // createComment: createCommentRoute
+  delete: deleteRoute,
+  createComment: createCommentRoute,
+  commentDelete: commentDeleteRoute
 };
