@@ -67,29 +67,29 @@ function deleteRoute(req, res){
       return res.redirect('/pictures');
     });
 }
-
-function createCommentRoute(req, res, next){
-  Picture
-    .findById(req.params.id)
-    .then( picture => {
-      picture.comments.push(req.body);
-      return picture.save();
-    })
-    .then(picture => res.redirect(`/pictures/${picture.id}`))
-    .catch(next);
-}
-
-function commentDeleteRoute(req, res, next) {
-  Picture
-    .findById(req.params.id)
-    .then(picture => {
-      const comment = picture.comments.id(req.params.commentId);
-      comment.remove();
-      return picture.save();
-    })
-    .then(picture => res.redirect(`/pictures/${picture.id}`))
-    .catch(next);
-}
+// 
+// function createCommentRoute(req, res, next){
+//   Picture
+//     .findById(req.params.id)
+//     .then( picture => {
+//       picture.comments.push(req.body);
+//       return picture.save();
+//     })
+//     .then(picture => res.redirect(`/pictures/${picture.id}`))
+//     .catch(next);
+// }
+//
+// function commentDeleteRoute(req, res, next) {
+//   Picture
+//     .findById(req.params.id)
+//     .then(picture => {
+//       const comment = picture.comments.id(req.params.commentId);
+//       comment.remove();
+//       return picture.save();
+//     })
+//     .then(picture => res.redirect(`/pictures/${picture.id}`))
+//     .catch(next);
+// }
 
 module.exports = {
   index: indexRoute,
@@ -98,7 +98,7 @@ module.exports = {
   create: createRoute,
   edit: editRoute,
   update: updateRoute,
-  delete: deleteRoute,
-  createComment: createCommentRoute,
-  commentDelete: commentDeleteRoute
+  delete: deleteRoute
+  // createComment: createCommentRoute,
+  // commentDelete: commentDeleteRoute
 };

@@ -9,6 +9,7 @@ const pictureSchema = new mongoose.Schema({
   title: String,
   url: String,
   creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  description: String,
   comments: [{
     content: { type: String, required: true }
   }]

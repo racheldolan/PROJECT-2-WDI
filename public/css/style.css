@@ -22,8 +22,11 @@
 .creator {
   font-size: 20px; }
 
+.comment-header {
+  font-size: 30px; }
+
 .user-show {
-  padding-left: 30%; }
+  margin: 0 auto; }
 
 .show {
   margin-left: 20%;

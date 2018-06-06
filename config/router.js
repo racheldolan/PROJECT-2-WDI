@@ -36,14 +36,12 @@ router.route('/login')
 router.route('/logout')
   .get(sessionsController.delete);
 //
-router.route('/pictures/:id/comments')
-  .post(picturesController.createComment);
+// router.route('/pictures/:id/comments')
+//   .post(picturesController.createComment);
+//
+// router.route('/pictures/:id/comments/:commentId')
+//   .delete(picturesController.commentDelete);
 
-router.route('/pictures/:id/comments/:commentId')
-  .delete(picturesController.commentDelete);
-
-router.route('/users/pictures')
-  .get(usersController.index);
 
 router.route('/users/:id')
   .get(usersController.show)

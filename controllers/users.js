@@ -1,21 +1,21 @@
 const User = require('../models/user');
 const Picture = require('../models/picture');
 
-function indexRoute(req, res){
-  Promise.all([User.findById(req.params.id), Picture.find()])
-    .then( (values) => {
-      const userId = values[0]._id.toString();
-      const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
-      res.render('users/pictures', {values,wantedPictures});
-    });
-}
+// function indexRoute(req, res){
+//   Promise.all([User.findById(req.params.id), Picture.find()])
+//     .then( (values) => {
+//       const userId = values[0]._id.toString();
+//       const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
+//       res.render('users/pictures', {values, wantedPictures});
+//     });
+// }
 
 function showRoute(req, res){
   Promise.all([User.findById(req.params.id), Picture.find()])
     .then( (values) => {
       const userId = values[0]._id.toString();
       const wantedPictures = values[1].filter(picture => picture.creator.toString() === userId);
-      res.render('users/show', {values,wantedPictures});
+      res.render('users/show', {values, wantedPictures});
     });
 
   // User
@@ -58,7 +58,7 @@ function updateRoute(req, res){
 // }
 
 module.exports = {
-  index: indexRoute,
+  // index: indexRoute,
   show: showRoute,
   edit: editRoute,
   update: updateRoute

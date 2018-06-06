@@ -3,28 +3,24 @@
   <div class="columns show">
     <div class="column is-half">
       <img src="<%= picture.url %>" alt="<%= picture.title %>">
-        <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
-          <textarea name="content" rows="8" cols="80"></textarea>
-          <button class="button" name="button">Post a comment</button>
-        </form>
-        <ul>
-          <% picture.comments.forEach(comment => { %>
-            <li> <%= comment.content %> </li>
-          <% }) %>
-        </ul>
+
       </div>
       <div class="column is-half">
         <ul>
           <li><%= picture.title %> </li>
-          <% if (picture.creator){ %>
+          <li><%= picture.description %> </li>
           <li><a href="/users/<%= picture.creator.id %>"> <%= picture.creator.username %> </a></li>
-          <% } %>
+          <li><%= picture.creator.location %> </li>        
         </ul>
         <a href="/pictures/<%= picture.id %>/edit">Edit</a>
         <form action="/pictures/<%= picture.id %>/" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button class="button" name="button"> Delete</button>
         </form>
+
+      </div>
+
+      </ul>
       </div>
     </div>
   </section>
