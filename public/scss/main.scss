@@ -55,6 +55,11 @@ textarea {
   background-color: #F1A9A0;
 }
 
+.edit-user-page {
+  height: 900px;
+  background-color: #F1A9A0;
+}
+
 h2.subtitle {
   color: white;
   font-size: 25px;
@@ -82,12 +87,6 @@ h2.subtitle {
   font-size: 20px;
 }
 
-// .card-content {
-//   background-color: white;;
-// }
-
-
-
 .index-page {
 background-color: white;
   padding-top: 30px;
@@ -110,17 +109,18 @@ background-color: white;
 
 }
 
-img {
-
-}
-
 .logo {
   border-radius: 50%;
   height: 40;
 }
 
-.comment-header {
-  font-size: 30px;
+.comment-show {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.media+.media {
+  border-bottom: 1px solid rgba(219,219,219,.5);
 }
 
 .user-show {

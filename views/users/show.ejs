@@ -11,15 +11,10 @@
     </div>
 
     <div class="column is-half-desktop">
-
         <p class="title"><%= profile.username %> </p>
-
         <p class="subtitle"><%= profile.location %> </p>
         <p class="subtitle is-6"><%= profile.bio %> </p>
-
         <p>Website: <a target="blank" href="<%= profile.website %>"><%= profile.website%></a></p>
-
-
         <% if(locals.user && (profile.id === locals.user.id)){%>
           <div class="edit-button"
         <button class="edit-button" name="button"><a class="edit" href="/users/<%= profile.id %>/edit">Edit</a></button>

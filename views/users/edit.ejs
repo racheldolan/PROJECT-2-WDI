@@ -1,7 +1,7 @@
+<section class="edit-user-page">
+<div class="edit-form">
 
-<div class="form-section">
-
-<form action="/users/<%= user.id %>" method="POST">
+<form action="/users/<%= user.id %>" method="POST" class="form-section">
   <input type="hidden" name="_method" value="PUT">
 <div class="field">
   <label class="label">Name</label>
@@ -42,7 +42,7 @@
 
   <label class="label">Bio</label>
   <div class="control">
-    
+
     <input class="input" type="text" name="bio" id="bio" value="<%= user.bio %>">
 
   </div>
@@ -84,3 +84,4 @@
 </div>
   </form>
 </div>
+</section>

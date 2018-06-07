@@ -1,65 +1,81 @@
 
 <section class="show-page">
   <div class="columns show">
+
     <div class="column is-half">
       <img src="<%= picture.url %>" alt="<%= picture.title %>">
 
+      <section class="comment-show">
+        <article class="media">
+          <div class="media-content">
+            <div class="field">
+              <p class="control">
+                <textarea class="textarea" placeholder="Add a comment..."></textarea>
+              </p>
+            </div>
+            <nav class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
+                    <button class="button" name="button">Post a comment</button>
+                  </form>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </article>
+
+
+      <% picture.comments.forEach(comment => { %>
+        <article class="media">
+        <a href="#" name="comments-box" id="comments-box"></a>
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="<%= comment.userId.profile %>">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong><%= comment.userId.username %></strong><br>
+                <strong><%= comment.userId.location %></strong>
+                <br>
+               <%= comment.content %>
+              </p>
+            </div>
+            <nav class="level is-mobile">
+            </nav>
+          </div>
+          <div class="media-right">
+          <form action="/pictures/<%= picture.id %>/comments/<%= comment._id %>/" method="post">
+           <input type="hidden" name="_method" value="DELETE">
+           <button class="button" name="button"> Delete</button>
+         </form>
+          </div>
+        </article>
+          <% }) %>
+      </section>
+
       </div>
+
+
       <div class="column is-half picture-details">
         <ul>
-          <li class="title"><%= picture.title %> </li>
-
-          <li><a href="/users/<%= picture.creator.id %>"> <%= picture.creator.username %> </a></li>
+          <li class="title picture-title"><%= picture.title %> </li>
+          <li><a href="/users/<%= picture.creator.id %>"><strong><%= picture.creator.username %></strong> </a></li>
           <li><%= picture.description %> </li>
           <li><%= picture.creator.location %> </li>
         </ul>
         <a href="/pictures/<%= picture.id %>/edit">Edit</a>
 
-
-
         <form action="/pictures/<%= picture.id %>/" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button class="button" name="button"> Delete</button>
         </form>
-        <div class="comment-box">
-        <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
-           <textarea name="content" rows="8" cols="60"></textarea>
-           <button class="button" name="button">Post a comment</button>
-         </form>
-       </div>
-       <ul>
+        <a href="#comments-box">View Comments</a>
+
       </div>
-      </ul>
+
       </div>
     </div>
   </section>
-
-<section>
-  <% picture.comments.forEach(comment => { %>
-    <% if(locals.user && profile.id) { %>
-  <div class="card">
-    <div class="card-content">
-      <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img src="<%= comment.userId.profile %>" alt="Placeholder image">
-          </figure>
-        </div>
-        <div class="media-content">
-          <p class="title is-4">  <%= comment.userId.username %></p>
-          <p class="subtitle is-6"><%= comment.userId.location %></p>
-        </div>
-      </div>
-      <div class="content">
-          <%= comment.content %>
-        <form action="/pictures/<%= picture.id %>/comments/<%= comment._id %>/" method="post">
-          <input type="hidden" name="_method" value="DELETE">
-          <button class="button" name="button"> Delete</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <% } %>
-  <% }) %>
-
-</section>

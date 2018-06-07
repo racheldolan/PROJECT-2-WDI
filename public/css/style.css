@@ -40,6 +40,10 @@ textarea {
   height: 700px;
   background-color: #F1A9A0; }
 
+.edit-user-page {
+  height: 900px;
+  background-color: #F1A9A0; }
+
 h2.subtitle {
   color: white;
   font-size: 25px; }
@@ -81,8 +85,12 @@ h2.subtitle {
   border-radius: 50%;
   height: 40; }
 
-.comment-header {
-  font-size: 30px; }
+.comment-show {
+  padding-bottom: 20px;
+  padding-top: 20px; }
+
+.media + .media {
+  border-bottom: 1px solid rgba(219, 219, 219, 0.5); }
 
 .user-show {
   margin: 0 auto;
