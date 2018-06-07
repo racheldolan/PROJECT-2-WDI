@@ -1,95 +1,79 @@
 
 
-  <div class="columns show">
+<div class="columns show">
 
-    <div class="column is-one-fifth picture-details">
-      <ul class="user-info">
-        <li class="title picture-title"><%= picture.title %> </li>
-        <li class="subtitle"><a href="/users/<%= picture.creator.id %>"><strong><%= picture.creator.username %></strong> </a></li>
-        <li><%= picture.description %> </li>
-        <li><%= picture.creator.location %> </li>
-      </ul>
-      <% if(locals.user && (picture.creator.id === locals.user.id)){%>
+  <div class="column is-one-fifth picture-details">
+    <ul class="user-info">
+      <li class="title picture-title"><%= picture.title %> </li>
+      <li class="subtitle"><a href="/users/<%= picture.creator.id %>"><strong><%= picture.creator.username %></strong> </a></li>
+      <li><%= picture.description %> </li>
+      <li><%= picture.creator.location %> </li>
+    </ul>
+    <% if(locals.user && (picture.creator.id === locals.user.id)){%>
       <a href="/pictures/<%= picture.id %>/edit">Edit</a>
-
       <form action="/pictures/<%= picture.id %>/" method="post">
         <input type="hidden" name="_method" value="DELETE">
         <button class="button" name="button"> Delete</button>
       </form>
-      <% } %>
-    </div>
+    <% } %>
+  </div>
 
-    <div class="column is-two-fifths">
-      <img src="<%= picture.url %>" alt="<%= picture.title %>">
+  <div class="column is-two-fifths">
+    <img src="<%= picture.url %>" alt="<%= picture.title %>">
+  </div>
 
+  <div class="column is-two-fifths comment-div">
+    <% picture.comments.forEach(comment => { %>
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="<%= comment.userId.profile %>">
+          </p>
+        </figure>
+          <div class="media-content">
+            <div class="content">
+
+              <p>
+
+                <a href="/users/<%= comment.userId.id %>"<strong><%= comment.userId.username %></strong></a><br>
+                <strong><%= comment.userId.location %></strong>
+                <br>
+                <%= comment.content %>
+              </p>
             </div>
-
-    <div class="column is-two-fifths comment-div">
-
-          <% picture.comments.forEach(comment => { %>
-            <article class="media">
-              <figure class="media-left">
-                <p class="image is-64x64">
-                  <img src="<%= comment.userId.profile %>">
-                </p>
-              </figure>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <a href="/users/<%= comment.userId.id %>"<strong><%= comment.userId.username %></strong><br>
-                    <strong><%= comment.userId.location %></strong>
-                    <br>
-                   <%= comment.content %>
-                  </p>
-                </div>
-                <nav class="level is-mobile">
-                </nav>
-              </div>
-              <div class="media-right">
+              <nav class="level is-mobile">
+              </nav>
+            </div>
+            <div class="media-right">
               <form action="/pictures/<%= picture.id %>/comments/<%= comment._id %>/" method="post">
-               <input type="hidden" name="_method" value="DELETE">
-               <button class="button" name="button"> Delete</button>
-             </form>
-              </div>
-            </article>
-              <% }) %>
-
-<% if(locals.user) { %>
-              <section class="comment-show">
-                <article class="media">
-                  <div class="media-content">
-                    <div class="field">
-
-                      <p class="control">
-                        <textarea class="textarea" placeholder="Add a comment..."></textarea>
-                      </p>
-                    </div>
-                    <nav class="level">
-                      <div class="level-left">
-                        <div class="level-item">
-
-                          <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
-                            <button class="button" name="button">Post a comment</button>
-                          </form>
-
-                        </div>
-                      </div>
-                    </nav>
-                  </div>
-
-                </article>
-                  </section>
-                    <% } %>
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="button" name="button"> Delete</button>
+               </form>
             </div>
+      </article>
+    <% }) %>
 
-
-
-
-
-
-
-
-
-
-
-      </div>
+    <% if(locals.user) { %>
+      <section class="comment-show">
+        <article class="media">
+          <div class="media-content">
+            <div class="field">
+              <p class="control">
+                <textarea class="textarea" placeholder="Add a comment..."></textarea>
+              </p>
+            </div>
+            <nav class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
+                    <button class="button" name="button">Post a comment</button>
+                  </form>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </article>
+      </section>
+    <% } %>
+  </div>
+</div>

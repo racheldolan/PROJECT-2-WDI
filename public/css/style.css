@@ -119,7 +119,7 @@ li.title {
 div.columns.show {
   margin-left: 20px; }
 
-.user-info {
+.user-info, .picture-details {
   text-align: right; }
 
 body {
