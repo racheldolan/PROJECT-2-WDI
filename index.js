@@ -58,4 +58,4 @@ app.use(methodOverride((req)=>{
 }));
 
 app.use(router);
-app.listen(port, () => console.log('listening'));
+app.listen(port, () => console.log(`listening on ${port}`));
