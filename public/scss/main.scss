@@ -2,6 +2,10 @@
   font-family: 'PT Sans', sans-serif;
 }
 
+a {
+  color: #4a4a4a;
+}
+
 .columns {
   margin: 20px 20px 20px 20px;
 }
@@ -11,10 +15,26 @@
   margin: 0 auto;
 }
 
+.edit-form {
+  padding-top: 40px;
+}
+
+.edit-form label{
+  font-weight: 700;
+}
+
+//  {
+//   background-color: #F1A9A0;
+// }
+
 h1.title{
   color: white;
   font-size: 60px;
   font-family: 'Pacifico', cursive;
+}
+
+textarea {
+  outline: none;
 }
 
 .brand {
@@ -28,6 +48,11 @@ h1.title{
   font-family: 'Pacifico', cursive;
   color: white;
   padding-top: 10%;
+}
+
+.edit-picture-page {
+  height: 700px;
+  background-color: #F1A9A0;
 }
 
 h2.subtitle {
@@ -94,10 +119,6 @@ img {
   height: 40;
 }
 
-.edit-button {
-  padding-top: 20px;
-}
-
 .comment-header {
   font-size: 30px;
 }
@@ -116,6 +137,10 @@ img {
 
 body {
   background-color: white;
+}
+
+.field.is-grouped.is-grouped-centered {
+  padding-bottom: 40px;
 }
 
 .show-page {

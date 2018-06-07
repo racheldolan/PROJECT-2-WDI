@@ -22,7 +22,7 @@
 
         <% if(locals.user && (profile.id === locals.user.id)){%>
           <div class="edit-button"
-        <button class="button" name="button"><a href="/users/<%= profile.id %>/edit">Edit</a></button>
+        <button class="edit-button" name="button"><a class="edit" href="/users/<%= profile.id %>/edit">Edit</a></button>
           </div>
         <% } %>
 

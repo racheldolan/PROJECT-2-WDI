@@ -5,11 +5,12 @@
       <img src="<%= picture.url %>" alt="<%= picture.title %>">
 
       </div>
-      <div class="column is-half">
+      <div class="column is-half picture-details">
         <ul>
-          <li><%= picture.title %> </li>
-          <li><%= picture.description %> </li>
+          <li class="title"><%= picture.title %> </li>
+
           <li><a href="/users/<%= picture.creator.id %>"> <%= picture.creator.username %> </a></li>
+          <li><%= picture.description %> </li>
           <li><%= picture.creator.location %> </li>
         </ul>
         <a href="/pictures/<%= picture.id %>/edit">Edit</a>

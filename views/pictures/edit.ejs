@@ -1,23 +1,26 @@
+<section class="edit-picture-page">
 
-<form action="/pictures/<%= picture.id %>" method="POST" class="form-section">
-<input type="hidden" name="_method" value="PUT">
+<div class="edit-form">
+
+  <form action="/pictures/<%= picture.id %>" method="POST" class="form-section">
+    <input type="hidden" name="_method" value="PUT">
     <div class="field">
-        <label for="title">Title</label>
-          <div class="control">
-            <input type="text" name="title" class="input" id="title" value="<%= picture.title %>">
-          </div>
+      <label for="title">Title</label>
+      <div class="control">
+        <input type="text" name="title" class="input" id="title" value="<%= picture.title %>">
+      </div>
     </div>
     <div class="field">
-        <label for="url">Url</label>
-          <div class="control">
-            <input type="url" name="url" class="input" id="url" value="<%= picture.url %>">
-        </div>
+      <label for="url">Url</label>
+      <div class="control">
+        <input type="url" name="url" class="input" id="url" value="<%= picture.url %>">
+      </div>
     </div>
     <div class="field">
-        <label for="url">Description</label>
-          <div class="control">
-            <input type="text" name="description" class="input" id="description" value="<%= picture.description %>">
-        </div>
+      <label for="url">Description</label>
+      <div class="control">
+        <input type="text" name="description" class="input" id="description" value="<%= picture.description %>">
+      </div>
     </div>
     <div class="field is-grouped">
       <div class="control">
@@ -25,6 +28,8 @@
 
         <button class="button is-light">Cancel</button>
 
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
+</section>
