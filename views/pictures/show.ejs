@@ -9,6 +9,7 @@
         <article class="media">
           <div class="media-content">
             <div class="field">
+
               <p class="control">
                 <textarea class="textarea" placeholder="Add a comment..."></textarea>
               </p>
@@ -16,19 +17,21 @@
             <nav class="level">
               <div class="level-left">
                 <div class="level-item">
+                    <% if(locals.user) { %>
                   <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
                     <button class="button" name="button">Post a comment</button>
                   </form>
+                  <% } %>
                 </div>
               </div>
             </nav>
           </div>
+
         </article>
 
 
       <% picture.comments.forEach(comment => { %>
         <article class="media">
-        <a href="#" name="comments-box" id="comments-box"></a>
           <figure class="media-left">
             <p class="image is-64x64">
               <img src="<%= comment.userId.profile %>">
@@ -66,14 +69,14 @@
           <li><%= picture.description %> </li>
           <li><%= picture.creator.location %> </li>
         </ul>
+        <% if(locals.user && (picture.creator.id === locals.user.id)){%>
         <a href="/pictures/<%= picture.id %>/edit">Edit</a>
 
         <form action="/pictures/<%= picture.id %>/" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button class="button" name="button"> Delete</button>
         </form>
-        <a href="#comments-box">View Comments</a>
-
+        <% } %>
       </div>
 
       </div>
