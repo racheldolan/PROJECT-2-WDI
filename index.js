@@ -5,11 +5,11 @@ const methodOverride = require('method-override');
 const mongoose       = require('mongoose');
 const session        = require('express-session');
 mongoose.Promise = require('bluebird');
-const databaseURI = 'mongodb://localhost/mongo-canvas';
 
-const { port, databaseURI } = require('./config/environment');
 
-mongoose.connect(databaseURI);
+const { port, dbURI } = require('./config/environment');
+
+mongoose.connect(dbURI);
 
 const router         = require('./config/router');
 const app            = express();
