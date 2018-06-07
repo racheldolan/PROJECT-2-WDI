@@ -7,6 +7,8 @@ const session        = require('express-session');
 mongoose.Promise = require('bluebird');
 const databaseURI = 'mongodb://localhost/mongo-canvas';
 
+const { port, databaseURI } = require('./config/environment');
+
 mongoose.connect(databaseURI);
 
 const router         = require('./config/router');
@@ -16,6 +18,7 @@ const User           = require('./models/user');
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 app.use(expressLayouts);
+
 
 
 app.use(express.static(`${__dirname}/public`));
@@ -55,4 +58,4 @@ app.use(methodOverride((req)=>{
 }));
 
 app.use(router);
-app.listen(4000, () => console.log('listening on port 4000'));
+app.listen(port, () => console.log('listening on port 4000'));
