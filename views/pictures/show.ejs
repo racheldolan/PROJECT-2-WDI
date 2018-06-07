@@ -5,7 +5,7 @@
     <div class="column is-one-fifth picture-details">
       <ul class="user-info">
         <li class="title picture-title"><%= picture.title %> </li>
-        <li><a href="/users/<%= picture.creator.id %>"><strong><%= picture.creator.username %></strong> </a></li>
+        <li class="subtitle"><a href="/users/<%= picture.creator.id %>"><strong><%= picture.creator.username %></strong> </a></li>
         <li><%= picture.description %> </li>
         <li><%= picture.creator.location %> </li>
       </ul>
@@ -36,7 +36,7 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong><%= comment.userId.username %></strong><br>
+                    <a href="/users/<%= comment.userId.id %>"<strong><%= comment.userId.username %></strong><br>
                     <strong><%= comment.userId.location %></strong>
                     <br>
                    <%= comment.content %>
