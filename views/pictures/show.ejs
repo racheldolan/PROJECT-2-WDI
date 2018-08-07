@@ -57,14 +57,15 @@
           <div class="media-content">
             <div class="field">
               <p class="control">
-                <textarea class="textarea" name="content" placeholder="Add a comment..."></textarea>
+
               </p>
             </div>
             <nav class="level">
               <div class="level-left">
                 <div class="level-item">
-                  <form class="" action="/pictures/<%= picture.id %>/comments" method="post">
-                    <button class="button" name="button">Post a comment</button>
+                  <form action="/pictures/<%= picture.id %>/comments" method="post">
+                  <input class="textarea" name="content" placeholder="Add a comment...">
+                    <button class="button">Post a comment</button>
                   </form>
                 </div>
               </div>

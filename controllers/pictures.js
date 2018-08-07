@@ -20,7 +20,7 @@ function showRoute(req, res){
     .populate('comments.userId')
     .exec()
     .then( picture => {
-      console.log(picture.comments);
+      // console.log(picture.comments);
       res.render('pictures/show', {picture});
     });
 }
@@ -75,8 +75,9 @@ function createCommentRoute(req, res, next){
     .findById(req.params.id)
     .populate('userId')
     .exec()
-    .then( picture => {
-      console.log(req.user._id);
+    .then(picture => {
+      // console.log(req.user._id);
+      console.log(req.body);
       picture.comments.push(req.body);
       return picture.save();
     })
