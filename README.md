@@ -15,7 +15,7 @@ For our second project we had a total of 7 days to build a full-stack RESTful ap
  * Have **semantically clean HTML** - you make sure you write HTML that makes structural sense rather than thinking about how it might look, which is the job of CSS.
  * **Be deployed online** and accessible to the public.
 
- # Technologies
+### Technologies
 
 * HTML5
 * CSS3 & SCSS
@@ -37,6 +37,8 @@ For our second project we had a total of 7 days to build a full-stack RESTful ap
 ###### Landing page
 
 I built Canvas, a community driven site for artists to share their work and discover other artists for collaboration, inspiration and to showcase their skills.
+
+Visit site: https://wdi-project-2-canvas.herokuapp.com/
 
 <p align="center"><img src='./public/images/login.png'></p>
 
