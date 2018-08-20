@@ -31,6 +31,7 @@ For our second project we had a total of 7 days to build a full-stack RESTful ap
 * Github
 
 <p align="center"><img src='./public/images/home.png'></p>
+
 ###### Landing page
 
 I built Canvas, a community driven site for artists to share their work and discover other artists for collaboration, inspiration and to showcase their skills.
