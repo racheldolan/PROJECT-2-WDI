@@ -30,6 +30,8 @@ For our second project we had a total of 7 days to build a full-stack RESTful ap
 * Git
 * Github
 
+---
+
 <p align="center"><img src='./public/images/home.png'></p>
 
 ###### Landing page
@@ -39,6 +41,8 @@ I built Canvas, a community driven site for artists to share their work and disc
 <p align="center"><img src='./public/images/login.png'></p>
 
 ###### The app uses session based authentication
+
+---
 
  ### The Build
 
@@ -52,9 +56,13 @@ I wanted to build an app that allowed users not only to discover art but to disc
 
 In order to do this I had two models - one for "pictures" (art) and the other for users. This project was the first time I used Virtuals in order to populate a user's profile page with pictures they've posted, which was one of my highlights on this project.
 
+---
+
  ### Learnings
 
 I underestimated how long it would take to reach MVP, meaning that some of the features I'd planned (e.g. having the ability to "like" or "favourite" posts from other users), I was unable to implement due to time constraints.
+
+---
 
  ### Extra Features
 
@@ -63,3 +71,5 @@ Moving forward there are a few features that I think would be good to add.
 * Allow users to follow other users - number of followers/following displayed on profile
 * Users can "like" a particular post which will then appear on their profile
 * Error messages displayed to the user - e.g. at login, trying to comment without being logged in.
+
+---
