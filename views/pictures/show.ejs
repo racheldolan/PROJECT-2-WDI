@@ -9,13 +9,13 @@
       <li><%= picture.description %> </li>
       <li><%= picture.creator.location %> </li>
     </ul>
-
+    <% if(locals.user && (picture.creator.id === locals.user.id)){%>
       <a href="/pictures/<%= picture.id %>/edit">Edit</a>
       <form action="/pictures/<%= picture.id %>/" method="post">
         <input type="hidden" name="_method" value="DELETE">
         <button class="button" name="button"> Delete</button>
       </form>
-
+    <% } %>
   </div>
 
   <div class="column is-two-fifths">
