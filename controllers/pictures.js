@@ -20,7 +20,6 @@ function showRoute(req, res){
     .populate('comments.userId')
     .exec()
     .then( picture => {
-      // console.log(picture.comments);
       res.render('pictures/show', {picture});
     });
 }
